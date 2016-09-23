@@ -1,12 +1,13 @@
 defmodule Carehub.Router do
   use Phoenix.Router
 
-  pipeline :graphql do
-    plug Carehub.Context
+  pipeline :api do
+    plug :accepts, ["json"]
   end
 
   scope "/api" do
-    pipe_through :graphql
-    forward "/", Absinthe.Plug, schema: Carehub.Schema
+    pipe_through :api
+
+    forward "/", GraphQL.Plug, schema: {TestSchema, :schema}
   end
 end

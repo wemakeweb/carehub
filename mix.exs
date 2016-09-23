@@ -18,8 +18,15 @@ defmodule Carehub.Mixfile do
   # Type `mix help compile.app` for more information.
   def application do
     [mod: {Carehub, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger,
-                    :phoenix_ecto, :mariaex, :absinthe]]
+     applications: [
+       :phoenix,
+       :cowboy,
+       :logger,
+       :phoenix_ecto,
+       :mariaex,
+       :graphql,
+       :plug_graphql]
+     ]
   end
 
   # Specifies which paths to compile per environment.
@@ -31,15 +38,12 @@ defmodule Carehub.Mixfile do
   # Type `mix help deps` for examples and options.
   defp deps do
     [{:phoenix, "~> 1.2.1"},
-     {:phoenix_pubsub, "~> 1.0"},
      {:phoenix_ecto, "~> 3.0"},
-     {:mariaex, ">= 0.0.0"},
-     {:phoenix_html, "~> 2.6"},
      {:phoenix_live_reload, "~> 1.0", only: :dev},
+     {:mariaex, ">= 0.0.0"},
      {:cowboy, "~> 1.0"},
-     {:absinthe, "~> 1.1.0"},
-     {:absinthe_plug, "~> 1.1"},
-     {:poison, "~> 2.1.0"},
+     {:graphql, "~> 0.3.2"},
+     {:plug_graphql, "~> 0.3.1"},
      {:graphql_relay, "~> 0.5"}]
 
   end

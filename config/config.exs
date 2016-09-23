@@ -13,9 +13,8 @@ config :carehub,
 config :carehub, Carehub.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "lb1jgPPEXXCZS/TNU9RXB+POx5bTT8bAJnt65w49cH35hI1JtxsXsdsC4PMZ6HRK",
-  render_errors: [view: Carehub.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Carehub.PubSub,
-           adapter: Phoenix.PubSub.PG2]
+  render_errors: [view: Carehub.ErrorView, accepts: ~w(html json)]
+
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -23,7 +22,7 @@ config :logger, :console,
   metadata: [:request_id]
 
 config :graphql_relay,
-  schema_module: Carehub.Schema,
+  schema_module: TestSchema,
   schema_json_path: "#{Path.dirname(__DIR__)}/priv/graphql"
 
 # Import environment specific config. This must remain at the bottom
