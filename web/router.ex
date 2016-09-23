@@ -8,6 +8,6 @@ defmodule Carehub.Router do
   scope "/api" do
     pipe_through :api
 
-    forward "/", GraphQL.Plug, schema: {TestSchema, :schema}
+    forward "/", GraphQL.Plug, schema: {Schema, :schema}
   end
 end
